@@ -1,7 +1,6 @@
 package statisticker;
 
 import static org.junit.Assert.*;
-import jdk.nashorn.internal.AssertsEnabled;
 
 import java.util.Arrays;
 import java.util.List;
@@ -36,9 +35,10 @@ public class StatisticsTest
         //https://www.geeksforgeeks.org/nan-not-number-java/
         //Design the asserts here and implement accordingly.
         
-        assertTrue(s.min.isNaN() == true);
-        assertTrue(s.max.isNaN() == true);
-        assertTrue(s.average.isNaN() == true);
+        float epsilon = 0.001f;
+        assertEquals(s.average, Float.NaN, epsilon);
+        assertEquals(s.min, Float.NaN, epsilon);
+        assertEquals(s.max, Float.NaN, epsilon);
     }
     @Test
     public void reportsAlertsIfMaxIsMoreThanThreshold()

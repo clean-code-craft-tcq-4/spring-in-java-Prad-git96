@@ -25,7 +25,7 @@ public class StatsChecker {
 
 	public void checkAndAlert(Float[] numbers) {
         Statistics.Stats s = Statistics.getStatistics(Arrays.asList(numbers));
-        if(s.getMax()>maxThreshold) {
+        if(s.max>maxThreshold) {
         	emailAlert.emailSent=true;
         	ledAlert.ledGlows=true;
         }
